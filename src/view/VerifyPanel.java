@@ -21,6 +21,11 @@ public class VerifyPanel {
 	public VerifyPanel(VerifyController baseController) {
 		super();
 		this.baseController = baseController;
+		firstNameLabel = new JLabel("First Name");
+		lastNameLabel = new JLabel("Last Name");
+		phoneNumberLabel = new JLabel("Phone Number Label");
+		firstNameLabel = new JLabel("First Name");
+		
 
 		setupPanel();
 		setupLayout();
