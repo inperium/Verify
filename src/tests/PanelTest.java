@@ -18,7 +18,7 @@ public class PanelTest
 	@Before
 	public void setUp() throws Exception
 	{
-		testPanel = new VerifyPanel(new VerifyPanel());
+		testPanel = new VerifyPanel(new VerifyController());
 	}
 
 	@After
