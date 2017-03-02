@@ -33,12 +33,12 @@ public class VerifyController {
 		return matcher.find();
 	}
 	
-	public boolean firstName(String name)
+	public boolean validateFirstName(String name)
 	{
 		return name.matches( "[a-zA-Z]*" );
 	}
 	
-	public boolean lastName(String name)
+	public boolean validateLastName(String name)
 	{
 		return name.matches( "[a-zA-z]+([ '-][a-zA-Z]+)*" );
 	}

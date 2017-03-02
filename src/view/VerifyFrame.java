@@ -29,6 +29,14 @@ public class VerifyFrame extends JFrame
 		this.setVisible(true);
 	}
 	
+	public VerifyController getBaseController() {
+		return baseController;
+	}
+
+	public void setBaseController(VerifyController baseController) {
+		this.baseController = baseController;
+	}
+
 	public VerifyPanel getVerifyPanel()
 	{
 		return this.verifyPanel;

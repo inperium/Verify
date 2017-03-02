@@ -69,12 +69,12 @@ public class VerifyPanel extends JPanel {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (baseController.firstName(firstName.getText())) {
+				if (baseController.validateFirstName(firstName.getText())) {
 					firstName.setBackground(new Color(47, 204, 47));
 				} else {
 					firstName.setBackground(new Color(219, 15, 15));
 				}
-				if (baseController.lastName(lastName.getText())) {
+				if (baseController.validateLastName(lastName.getText())) {
 					lastName.setBackground(new Color(47, 204, 47));
 				} else {
 					lastName.setBackground(new Color(219, 15, 15));
