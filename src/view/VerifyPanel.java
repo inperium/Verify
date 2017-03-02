@@ -1,5 +1,13 @@
 package view;
 
+import java.awt.Color;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -8,12 +16,11 @@ import javax.swing.SpringLayout;
 
 import controller.VerifyController;
 
-public class VerifyPanel extends JPanel
-{
+public class VerifyPanel extends JPanel {
 	private VerifyController baseController;
-	
+
 	private SpringLayout springLayout;
-	
+
 	private JLabel firstNameLabel;
 	private JTextField firstName;
 	private JLabel lastNameLabel;
@@ -23,7 +30,7 @@ public class VerifyPanel extends JPanel
 	private JLabel emailLabel;
 	private JTextField email;
 	private JButton submit;
-	
+
 	public VerifyPanel(VerifyController baseController) {
 		super();
 		this.baseController = baseController;
@@ -33,7 +40,7 @@ public class VerifyPanel extends JPanel
 		lastNameLabel = new JLabel("Last Name");
 		lastName = new JTextField();
 		phoneNumberLabel = new JLabel("Phone Number");
-		phoneNumber= new JTextField();
+		phoneNumber = new JTextField();
 		emailLabel = new JLabel("Email");
 		email = new JTextField();
 		submit = new JButton("Submit");
@@ -43,7 +50,7 @@ public class VerifyPanel extends JPanel
 		setupListners();
 
 	}
-	
+
 	private void setupPanel() {
 		this.setLayout(springLayout);
 		this.add(firstNameLabel);
@@ -58,7 +65,33 @@ public class VerifyPanel extends JPanel
 	}
 
 	private void setupListners() {
-		
+		this.submit.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (baseController.firstName(firstName.getText())) {
+					firstName.setBackground(new Color(47, 204, 47));
+				} else {
+					firstName.setBackground(new Color(219, 15, 15));
+				}
+				if (baseController.lastName(lastName.getText())) {
+					lastName.setBackground(new Color(47, 204, 47));
+				} else {
+					lastName.setBackground(new Color(219, 15, 15));
+				}
+				if (baseController.validatePhone(phoneNumber.getText())) {
+					phoneNumber.setBackground(new Color(47, 204, 47));
+				} else {
+					phoneNumber.setBackground(new Color(219, 15, 15));
+				}
+				if (baseController.validateEmail(email.getText())) {
+					email.setBackground(new Color(47, 204, 47));
+				} else {
+					email.setBackground(new Color(219, 15, 15));
+				}
+			}
+
+		});
 	}
 
 	private void setupLayout() {
